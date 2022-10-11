@@ -110,11 +110,40 @@ main p {
 }
 
 
+.movie:first-child {
+    margin-top: 2.75em;
+}
+
+
 .movie {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie img {
+    max-width: 100px;
+    margin-right: 1.3125em;
+}
+
+.title,
+.metadata {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.add-to-watchlist {
     display: flex;
     justify-content: center;
 }
 
-.movie img {
-    width: 100px;
+#add-btn {
+    height: 1em;
+    width: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    border-radius: 50%;
 }
