@@ -9,7 +9,7 @@ button {
 }
 
 .container {
-    width: 800px;
+    width: 500px;
     margin: auto;
 }
 
@@ -57,11 +57,13 @@ a {
 }
 
 .search {
+    width: 100%;
     padding-left: 0.8125em;
     border: 1px solid #D1D5DB;
     border-radius: 6px;
     background-color: white;
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -72,6 +74,7 @@ a {
 input {
     border: none;
     height: 2em;
+    width: 100%;
 }
 
 input:focus,
@@ -106,6 +109,12 @@ main p {
     color: #DFDDDD;
 }
 
-.poster {
+
+.movie {
+    display: flex;
+    justify-content: center;
+}
+
+.movie img {
     width: 100px;
 }
