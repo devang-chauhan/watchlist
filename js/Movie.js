@@ -10,19 +10,20 @@ class Movie{
                 <div class="details">
                     <div class="title">
                         <h3>${title}</h3>
-                        <p>⭐ ${stars}</p>
+                        <p class="star">⭐</p>
+                        <p class="stars">${stars}</p>
                     </div>
 
                     <div class="metadata">
-                        <p>${length} min</p>
+                        <p class="length">${length} min</p>
                         <p>${genre.join(',')}</p>
                         <div class="add-to-watchlist">
-                            <p id="add-btn">+</p>
+                            <img id="add-btn" src="images/icons/plus.png">
                             <p>Watchlist</p>
                         </div>
                     </div>
                     
-                    <p>${description}</p>
+                    <p class="description">${description}</p>
                 </div>
                 
             </div>
