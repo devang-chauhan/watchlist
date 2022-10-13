@@ -168,14 +168,14 @@ main {
     margin-right: 1.1875em;
 }
 
-.add-to-watchlist {
+#add-to-watchlist {
     display: flex;
     align-items: center;
     margin-left: 1.875em;
     cursor: pointer;
 }
 
-#add-btn {
+#add-to-watchlist img {
     height: 16px;
     width: 16px;
     border-radius: 50%;

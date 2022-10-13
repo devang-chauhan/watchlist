@@ -5,7 +5,14 @@ class Movie{
     getHTML() {
         const { src, title, stars, length, genre, description } = this;
         return `
-            <div class="movie container">
+            <div class="movie container" \
+                data-src=${src} \
+                data-title=${JSON.stringify(title)}\
+                data-stars=${stars} \
+                data-length=${length} \
+                data-genre=${genre} \
+                data-description=${JSON.stringify(description)}
+                >
                 <img src=${src} class="poster">
                 <div class="details">
                     <div class="title">
@@ -17,9 +24,9 @@ class Movie{
                     <div class="metadata">
                         <p class="length">${length} min</p>
                         <p>${genre.join(',')}</p>
-                        <div class="add-to-watchlist">
+                        <div id="add-to-watchlist">
                             <img id="add-btn" src="images/icons/plus.png">
-                            <p>Watchlist</p>
+                            <p id="add-txt" >Watchlist</p>
                         </div>
                     </div>
                     
