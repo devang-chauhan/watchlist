@@ -93,7 +93,7 @@ button {
 }
 
 /* Main */
-/* ********** */
+/* ************************************* */
 main {
     height: calc(100vh - 256.19px);
     padding: 0 2.75em;
@@ -109,7 +109,8 @@ main {
     color: #DFDDDD;
 }
 
-/* Movie */
+/* Movies */
+/* ************************************* */
 .movie:first-child {
     margin-top: 2.75em;
 }
@@ -185,4 +186,24 @@ main {
     color: #6B7280;
     font-size: 0.875rem;
     font-weight: 400;
+}
+
+
+/* Watchlist */
+/* ************************************* */
+
+#add-movies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#add-movies img {
+    width: 18px;
+    height: 18px;
+    margin-right: 7px;
 }
