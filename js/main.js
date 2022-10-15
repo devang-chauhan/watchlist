@@ -5,7 +5,25 @@ import Movie from './Movie.js';
 const searchBtn = document.getElementById("search");
 const moviesEl = document.getElementById("movies");
 
+if (localStorage.getItem('movieNames') === null) {
+    localStorage.setItem('movieNames', JSON.stringify([]));
+}
+if (localStorage.getItem('movies') === null) {
+    localStorage.setItem("movies", JSON.stringify([]));
+}
 
+
+function updateLocalStorage(movie) {
+    const movieNames = JSON.parse(localStorage.movieNames);
+    if (movieNames.includes(movie.title) === false) {
+        const movies = JSON.parse(localStorage.movies);
+        const movieNames = JSON.parse(localStorage.movieNames);
+        movies.push(movie);
+        movieNames.push(movie.title);
+        localStorage.setItem('movies', JSON.stringify(movies));
+        localStorage.setItem('movieNames', JSON.stringify(movieNames));
+    }
+}
 
 searchBtn.addEventListener("click", () => {
     moviesEl.style.height = '100%'; 
@@ -13,12 +31,14 @@ searchBtn.addEventListener("click", () => {
 });
 
 moviesEl.addEventListener("click", (e) => {
-    const movie = e.target.closest('.movie');
-    console.log(movie.getAttribute('data-src'));
-    console.log(movie.getAttribute('data-title'));
-    console.log(movie.getAttribute('data-stars'));
-    console.log(movie.getAttribute('data-length'));
-    console.log(movie.getAttribute('data-genre'));
-    console.log(movie.getAttribute('data-description'));
-
+    const movieObj = e.target.closest('.movie');
+    const movie = {
+        src: movieObj.getAttribute('data-src'),
+        title: movieObj.getAttribute('data-title'),
+        stars: movieObj.getAttribute('data-stars'),
+        length: movieObj.getAttribute('data-length'),
+        genre: movieObj.getAttribute('data-genre'),
+        description: movieObj.getAttribute('data-description')
+    };
+    updateLocalStorage(movie);
 });
