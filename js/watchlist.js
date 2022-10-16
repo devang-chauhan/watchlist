@@ -21,7 +21,7 @@ function movieObject(movie) {
 
 function updateDOM() {
     const movies = JSON.parse(localStorage.movies);
-    const movieNames = JSON.parse(localStorage.movieNames);
+    const movieNames = Object.keys(movies);
     if (movieNames.length > 0) {
         moviesEl.style.height = '100%'; 
         moviesEl.innerHTML = Object.values(movies).map(movieObject).join(' ');
@@ -40,12 +40,8 @@ function updateDOM() {
 
 function updateLocalStorage(movieTitle) {
     const movies = JSON.parse(localStorage.movies);
-    const movieNames = JSON.parse(localStorage.movieNames);
     delete movies[movieTitle];
-    const i = movieNames.indexOf(movieTitle);
-    movieNames.splice(i, 1);
     localStorage.setItem('movies', JSON.stringify(movies));
-    localStorage.setItem('movieNames', JSON.stringify(movieNames));
 }
 
 moviesEl.addEventListener("click", (e) => {
