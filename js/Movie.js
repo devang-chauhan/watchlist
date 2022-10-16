@@ -13,7 +13,7 @@ class Movie{
                 data-genre=${genre} \
                 data-description=${JSON.stringify(description)}
                 >
-                <img src=${src} class="poster">
+                <img src=${src}>
                 <div class="details">
                     <div class="title">
                         <h3>${title}</h3>

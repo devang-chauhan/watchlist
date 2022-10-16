@@ -207,3 +207,47 @@ main {
     height: 18px;
     margin-right: 7px;
 }
+
+
+/* Media queries */
+/* ************************************* */
+
+@media (max-width: 450px) {
+
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+    }
+
+    header,
+    main {
+        width: 100%;
+        padding: 0;
+        margin: 0
+    }
+
+    .container,
+    .movie {
+        width: 90%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .movie {
+        border: 3px solid green;
+
+    }
+
+    .metadata {
+        flex-direction: column;
+    }
+
+
+
+}
