@@ -6,23 +6,18 @@ import movies from './data.js';
 const searchBtn = document.getElementById("search");
 const moviesEl = document.getElementById("movies");
 
-if (localStorage.getItem('movieNames') === null) {
-    localStorage.setItem('movieNames', JSON.stringify([]));
-}
+
 if (localStorage.getItem('movies') === null) {
     localStorage.setItem("movies", JSON.stringify({}));
 }
 
 
 function updateLocalStorage(movie) {
-    const movieNames = JSON.parse(localStorage.movieNames);
+    const movies = JSON.parse(localStorage.movies);
+    const movieNames = Object.keys(movies);
     if (movieNames.includes(movie.title) === false) {
-        const movies = JSON.parse(localStorage.movies);
-        const movieNames = JSON.parse(localStorage.movieNames);
         movies[movie.title] = movie;
-        movieNames.push(movie.title);
         localStorage.setItem('movies', JSON.stringify(movies));
-        localStorage.setItem('movieNames', JSON.stringify(movieNames));
     }
 }
 
