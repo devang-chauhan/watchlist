@@ -2,8 +2,16 @@ class Movie{
     constructor(data) {
         Object.assign(this, data);
     }
-    getHTML() {
+    getHTML(card_type='add') {
         const { src, title, stars, length, genre, description } = this;
+        let btnImg = null;
+
+        if (card_type === 'add') {
+            btnImg = "images/icons/plus.png";
+        } else if (card_type === 'minus'){
+            btnImg = "images/icons/minus.png";
+        }
+
         return `
             <div class="movie container" \
                 data-src=${src} \
@@ -25,8 +33,8 @@ class Movie{
                         <p class="length">${length} min</p>
                         <p>${genre.join(',')}</p>
                         <div id="add-to-watchlist">
-                            <img id="add-btn" src="images/icons/plus.png">
-                            <p id="add-txt" >Watchlist</p>
+                            <img id="mov-btn" src=${btnImg}>
+                            <p id="mov-btn-txt" >Watchlist</p>
                         </div>
                     </div>
                     
