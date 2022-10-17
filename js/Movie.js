@@ -4,8 +4,8 @@ class Movie{
     }
     getHTML(card_type='add') {
         const { src, title, stars, length, genre, description } = this;
+        
         let btnImg = null;
-
         if (card_type === 'add') {
             btnImg = "images/icons/plus.png";
         } else if (card_type === 'minus'){
@@ -17,7 +17,7 @@ class Movie{
                 data-src=${src} \
                 data-title=${JSON.stringify(title)}\
                 data-stars=${stars} \
-                data-length=${length} \
+                data-length=${JSON.stringify(length)} \
                 data-genre=${genre} \
                 data-description=${JSON.stringify(description)}
                 >
@@ -30,8 +30,8 @@ class Movie{
                     </div>
 
                     <div class="metadata">
-                        <p class="length">${length} min</p>
-                        <p>${genre.join(',')}</p>
+                        <p class="length">${length}</p>
+                        <p>${genre}</p>
                         <div id="add-to-watchlist">
                             <img id="mov-btn" src=${btnImg}>
                             <p id="mov-btn-txt" >Watchlist</p>

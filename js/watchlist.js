@@ -12,7 +12,6 @@ addMoviesBtn.addEventListener("click", () => {
 
 
 function movieObject(movie) {
-    console.log(movie);
     const genre = movie.genre.split(',');
     movie.genre = genre;
     return new Movie(movie).getHTML('minus');
