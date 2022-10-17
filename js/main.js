@@ -1,18 +1,16 @@
+// Main module that handles movie search and showing movie cards
 
 import Movie from './Movie.js';
-
 
 const searchBtn = document.getElementById("search");
 const moviesEl = document.getElementById("movies");
 const inputEl = document.getElementById("input");
 
-
 if (localStorage.getItem('movies') === null) {
     localStorage.setItem("movies", JSON.stringify({}));
 }
 
-
-function updateLocalStorage(movie) {
+function addMovie(movie) {
     const movies = JSON.parse(localStorage.movies);
     const movieNames = Object.keys(movies);
     if (movieNames.includes(movie.title) === false) {
@@ -20,8 +18,6 @@ function updateLocalStorage(movie) {
         localStorage.setItem('movies', JSON.stringify(movies));
     }
 }
-
-
 
 function addMovieToDom(movie) {
     const movieObj = {
@@ -32,15 +28,12 @@ function addMovieToDom(movie) {
         'genre': movie.Genre,
         'description': movie.Plot
     };
-
-    
     moviesEl.innerHTML += new Movie(movieObj).getHTML();
 }
 
 
 function getIds(res) {
     const ids = [];
-    
     const movieArr = res.Search;
     for (let i = 0; i<movieArr.length; i++){
         ids.push(movieArr[i].imdbID);
@@ -66,6 +59,7 @@ searchBtn.addEventListener("click", async () => {
         const search = inputEl.value;
         const response = await fetch(`http://www.omdbapi.com/?apikey=79e72e2a&type="movie"&t=${search}&s=${search}}`);
         const output = await response.json();
+        
         if (output.Response === 'True') {
             const ids = getIds(output);
             const movies = updateDOM(ids);
@@ -90,7 +84,7 @@ moviesEl.addEventListener("click", (e) => {
             genre: movieObj.getAttribute('data-genre'),
             description: movieObj.getAttribute('data-description')
         };
-        updateLocalStorage(movie);
+        addMovie(movie);
     }
     
 });
