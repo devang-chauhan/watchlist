@@ -1,3 +1,5 @@
+// This module has the Movie object that is used to create movie cards on DOM
+
 class Movie{
     constructor(data) {
         Object.assign(this, data);
